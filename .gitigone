@@ -1,2 +1,3 @@
 .env
-advent-coding
+advent-coding/
+.DS_Store
