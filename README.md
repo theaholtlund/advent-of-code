@@ -1,6 +1,6 @@
 # Advent of Code Project
 
-Hobby project with various solutions to the Advent of Code 2023 challenges.
+Hobby project with various solutions to the Advent of Code 2023 challenges. Challenge for each day is listed in individual files, even if there were several parts to the challenge on that day.
 
 ## Installation
 
