@@ -2,7 +2,7 @@
 
 # Import required libraries
 from dotenv import load_dotenv
-
+import re
 import os
 import requests
 
@@ -37,3 +37,49 @@ for line in data.splitlines():
 print("Total Sum Numbers:", total_sum_numbers)
 
 
+
+# ======== PART 2: ALL CHARACTERS ========
+# Define a mapping between spelled out digits and numerical representations
+digit_mapping = {
+    'one': 1,
+    'two': 2,
+    'three': 3,
+    'four': 4,
+    'five': 5,
+    'six': 6,
+    'seven': 7,
+    'eight': 8,
+    'nine': 9
+}
+
+# Sample lines for testing
+lines = [
+    "njtwonefvhjplkjgvsevenbjg77",
+    "nine1twonem",
+    "sixtytwone"
+]
+
+# Initialise the sum variable
+total_sum_characters = 0
+
+# Process each line in the input
+for line in data.splitlines():
+    digits = []
+    
+    # Iterate through each character, check for digit and add to digits list
+    for index, char in enumerate(line):
+        if char.isdigit():
+            digits.append(char)
+        
+        # Check for spelled out numbers in the line
+        for key, value in digit_mapping.items():
+            # Check if the line starts with the spelled out number
+            if line[index:].startswith(key):
+                # Add the corresponding numerical value to the digits list
+                digits.append(str(value))
+
+    # Calculate the total sum using the first and last digit in the digits list
+    if digits:
+        total_sum_characters += int(digits[0] + digits[-1])
+
+print("Total Sum Characters:", total_sum_characters)
