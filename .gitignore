@@ -1,3 +1,4 @@
 .env
-advent-coding/
 .DS_Store
+advent-coding
+__pycache__
