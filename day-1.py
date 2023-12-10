@@ -1,23 +1,12 @@
 # Advent of Code Christmas Calendar, Day #1
 
 # Import required libraries
-from dotenv import load_dotenv
 import re
-import os
-import requests
+from config import fetch_data
 
-# Load environment variables into environment
-load_dotenv()
-cookie_value = os.environ.get('COOKIE_VALUE')
-
-# Constructing an HTTP header for cookie authentication
-# The session cookie value can be found in the browser developer tools after logging in
-headers = {'Cookie': f'session={cookie_value}'}
+# Set URL for the day and fetch the data
 url = 'https://adventofcode.com/2023/day/1/input'
-
-# Fetch the content of the URL
-response = requests.get(url, headers=headers)
-data = response.text
+data = fetch_data(url)
 
 # ======== PART 1: NUMBERS ONLY ========
 # Initialise the sum variable
