@@ -1,27 +1,12 @@
 # Advent of Code Christmas Calendar, Day #2
 
 # Import required libraries
-from dotenv import load_dotenv
-import os
 import re
-import requests
 from collections import defaultdict
+from config import fetch_data
 
-# Get the data to be processed
-def fetch_data():
-    # Load environment variables into environment
-    load_dotenv()
-    cookie_value = os.environ.get('COOKIE_VALUE')
-
-    # Constructing an HTTP header for cookie authentication
-    headers = {'Cookie': f'session={cookie_value}'}
-    url = 'https://adventofcode.com/2023/day/2/input'
-
-    # Fetch the content of the URL
-    response = requests.get(url, headers=headers)
-    data = response.text
-
-    return data
+# Set URL for the day
+url = 'https://adventofcode.com/2023/day/2/input'
 
 # Find the sum of IDs of possible games (Part 1) and the sum of powers of minimum sets (Part 2)
 def find_minimum_cubes(data):
@@ -63,10 +48,10 @@ def find_minimum_cubes(data):
 # Main function to execute the program, find the solutions for both parts
 def main():
     # Fetch input data from Advent of Code website
-    input_data = fetch_data()
+    data = fetch_data(url)
 
     # Call the function to find the solutions for both parts
-    part1_result, part2_result = find_minimum_cubes(input_data)
+    part1_result, part2_result = find_minimum_cubes(data)
 
     # Print the results
     print(f"Part 1: The sum of IDs of possible games is: {part1_result}")
