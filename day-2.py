@@ -58,7 +58,6 @@ def main():
     print(f"Part 2: The sum of powers of minimum sets is: {part2_result}")
 
 
-# The __name__ is set to "__main__" if the script is the main program being run
-# Allows for modularity, through importing functions or classes without running the entire script
+# Call the main function
 if __name__ == "__main__":
     main()
